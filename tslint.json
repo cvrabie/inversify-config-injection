@@ -1,0 +1,16 @@
+{
+  "extends": "tslint:latest",
+  "rules": {
+  	"whitespace": false,
+  	"typedef-whitespace": false,
+  	"one-line": false,
+  	"indent": false,
+  	"curly": false,
+  	"quotemark": false,
+  	"interface-name": false,
+  	"member-ordering": false,
+  	"ordered-imports": false,
+  	"trailing-comma": false,
+    "no-trailing-whitespace": false
+  }
+}
