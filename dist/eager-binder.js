@@ -104,6 +104,6 @@ var EagerBinder = (function () {
     return EagerBinder;
 }());
 exports.EagerBinder = EagerBinder;
-var defaultEagerConfigModule = new EagerBinder({}).getModule();
+exports.defaultEagerBinderModule = new EagerBinder({}).getModule();
 exports.__esModule = true;
-exports["default"] = defaultEagerConfigModule;
+exports["default"] = exports.defaultEagerBinderModule;

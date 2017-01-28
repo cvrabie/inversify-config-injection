@@ -27,5 +27,5 @@ export declare class EagerBinder {
     getModule(): ContainerModule;
     getBindingLog(): string[];
 }
-declare const defaultEagerConfigModule: ContainerModule;
-export default defaultEagerConfigModule;
+export declare const defaultEagerBinderModule: ContainerModule;
+export default defaultEagerBinderModule;

@@ -1,5 +1,5 @@
 import { EagerBinder, EagerBinderSettings, TypeHint } from "../src/eager-binder";
-import defaultBinderModule from "../src/eager-binder";
+import defaultEagerBinderModule from "../src/eager-binder";
 import * as chai from "chai";
 import { injectable, inject } from "inversify";
 import { Container } from "inversify";

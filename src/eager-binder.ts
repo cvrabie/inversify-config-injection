@@ -110,5 +110,5 @@ export class EagerBinder{
 	}
 }
 
-const defaultEagerConfigModule = new EagerBinder({}).getModule();
-export default defaultEagerConfigModule;
+export const defaultEagerBinderModule = new EagerBinder({}).getModule();
+export default defaultEagerBinderModule;
