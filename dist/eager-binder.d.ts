@@ -20,6 +20,7 @@ export declare class EagerBinder {
     constructor(settings: EagerBinderSettings);
     private bindString(bind, val, path);
     private bindNumber(bind, val, path);
+    private bindBoolean(bind, val, path);
     private bindArray(bind, val, path);
     private bindUnknown(bind, val, path);
     private bindAllInObject(bind, obj, path);

@@ -51,6 +51,11 @@ export class EagerBinder{
 		bind<number>(path).toConstantValue(val);
 	}
 
+	private bindBoolean(bind: interfaces.Bind, val:boolean, path:string){
+		if(this.settings.log) this.logs.push(`Binding '${path}' to boolean '${val}'`);
+		bind<boolean>(path).toConstantValue(val);
+	}
+
 	private bindArray(bind: interfaces.Bind, val:any[], path:string){
 		if(this.settings.typeHints[path] === TypeHint.String){
 			if(this.settings.log) this.logs.push(`Binding '${path}' to string[] '${val}'`);
@@ -69,6 +74,8 @@ export class EagerBinder{
 			this.bindString(bind, val as string, path);
 		}else if(typeof val === 'number'){
 			this.bindNumber(bind, val as number, path);
+		}else if(typeof val === 'boolean'){
+			this.bindBoolean(bind, val as boolean, path);
 		}else if(val instanceof Array){
 			this.bindArray(bind, val as any[], path);
 		}else if(typeof val === 'object'){

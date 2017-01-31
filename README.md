@@ -57,10 +57,7 @@ const configBinder = new EagerBinder({
   log: true,
   root: 'app',
   prefix: 'cfg',
-  objects: true,
-  typeHints: {
-    'app.db.seeds': TypeHint.String
-  }
+  objects: true
 });
 container.load(configBinder.module());
 ```
@@ -77,13 +74,8 @@ new EagerBinder({
 only loads the `app` breanch of the configuration. The keys necessary for injecting are also shortened.
 
 ```typescript
-@injectable(
-class DefaultDatabase implements Database{	
-  public constructor(
-		@inject("db.host") public host: string,
-		@inject("db.port") public port: number
-	){};
-}
+@inject("db.host") public host: string,
+@inject("db.port") public port: number
 ```
 
 ### Adding a prefix to the binding key
@@ -99,13 +91,8 @@ new EagerBinder({
 This makes correct biding:
 
 ```typescript
-@injectable(
-class DefaultDatabase implements Database{	
-  public constructor(
-		@inject("cfg.db.host") public host: string,
-		@inject("cfgdb.port") public port: number
-	){};
-}
+@inject("cfg.db.host") public host: string,
+@inject("cfg.db.port") public port: number
 ```
 
 Note that there is no `cfg` key in the configuration json.

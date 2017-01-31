@@ -42,6 +42,11 @@ var EagerBinder = (function () {
             this.logs.push("Binding '" + path + "' to number '" + val + "'");
         bind(path).toConstantValue(val);
     };
+    EagerBinder.prototype.bindBoolean = function (bind, val, path) {
+        if (this.settings.log)
+            this.logs.push("Binding '" + path + "' to boolean '" + val + "'");
+        bind(path).toConstantValue(val);
+    };
     EagerBinder.prototype.bindArray = function (bind, val, path) {
         if (this.settings.typeHints[path] === TypeHint.String) {
             if (this.settings.log)
@@ -65,6 +70,9 @@ var EagerBinder = (function () {
         }
         else if (typeof val === 'number') {
             this.bindNumber(bind, val, path);
+        }
+        else if (typeof val === 'boolean') {
+            this.bindBoolean(bind, val, path);
         }
         else if (val instanceof Array) {
             this.bindArray(bind, val, path);

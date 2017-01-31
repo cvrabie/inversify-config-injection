@@ -1,7 +1,7 @@
 import { EagerBinder, EagerBinderSettings, TypeHint } from "../src/eager-binder";
 import defaultEagerBinderModule from "../src/eager-binder";
 import * as chai from "chai";
-import { injectable, inject } from "inversify";
+import { injectable, inject, optional } from "inversify";
 import { Container } from "inversify";
 import "reflect-metadata";
 
@@ -15,7 +15,8 @@ interface Database {
 class DefaultDatabase implements Database{
 	public constructor(
 		@inject("app.db.host") public host: string,
-		@inject("app.db.port") public port: number
+		@inject("app.db.port") public port: number,
+		@inject("app.db.debug") @optional() public debug?:boolean 
 	){};
 	public getConnection(){
 		return this.host+":"+this.port;
@@ -71,10 +72,11 @@ describe("EagerBinder", () => {
   it("should load properties with default settings", () => {
 	const container = new Container();
 	container.bind<Database>("DB").to(DefaultDatabase);
-	container.load(defaultBinderModule);
+	container.load(defaultEagerBinderModule);
 
   	const db = container.get<DefaultDatabase>("DB");
     expect(db.getConnection()).to.equal("localhost:1234");
+    expect(db.debug).to.be.true;
   });
   
   it("should load properties with a different root", () => {
