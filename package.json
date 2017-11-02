@@ -1,6 +1,6 @@
 {
   "name": "inversify-config-injection",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "inversify-config-injection",
   "license": "MIT",
   "repository": "https://github.com/cvrabie/inversify-config-injection",
