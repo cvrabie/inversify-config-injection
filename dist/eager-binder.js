@@ -1,4 +1,5 @@
 "use strict";
+exports.__esModule = true;
 var inversify_1 = require("inversify");
 var config = require("config");
 var TypeHint;
@@ -113,5 +114,4 @@ var EagerBinder = (function () {
 }());
 exports.EagerBinder = EagerBinder;
 exports.defaultEagerBinderModule = new EagerBinder({}).getModule();
-exports.__esModule = true;
 exports["default"] = exports.defaultEagerBinderModule;
